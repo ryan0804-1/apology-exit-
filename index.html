@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>道歉才能退出</title>
+  <style>
+    body { text-align: center; margin-top: 100px; font-family: sans-serif; background-color: #f2f2f2; }
+    input, button { padding: 10px; margin-top: 10px; font-size: 16px; }
+    #message { margin-top: 20px; color: red; }
+  </style>
+</head>
+<body>
+  <h1>请输入 “对不起” 才能退出</h1>
+  <input id="apology" placeholder="输入道歉内容" />
+  <br>
+  <button onclick="check()">退出</button>
+  <div id="message"></div>
+  <script>
+    function check() {
+      const input = document.getElementById('apology').value.trim();
+      const msg = document.getElementById('message');
+      if (input === '对不起') {
+        msg.style.color = 'green';
+        msg.innerText = '道歉成功，正在退出...';
+        setTimeout(() => window.location.href = 'https://example.com', 1500);
+      } else {
+        msg.innerText = '请输入“对不起”';
+      }
+    }
+  </script>
+</body>
+</html>
